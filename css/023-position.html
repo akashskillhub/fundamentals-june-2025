@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dummy {
+            height: 400px;
+            background-color: yellow;
+        }
+
+        .parent {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            position: relative;
+        }
+
+        .child {
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            position: absolute;
+            /* top: 0px; */
+            right: 0px;
+            bottom: 0;
+        }
+
+        /* 
+            static
+
+            top right bottom left
+            absolute
+            relative
+            fixed
+            sticky
+        */
+        .fixed {
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        .fake {
+            height: 2000px;
+        }
+
+        .sticky {
+            height: 100px;
+            background-color: aqua;
+            position: sticky;
+            top: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dummy"></div>
+
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+
+    <div class="fixed"></div>
+    <div class="sticky"></div>
+
+    <div class="fake"></div>
+</body>
+
+</html>
