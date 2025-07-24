@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap By SKILLHUB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <div class="card">
+                    <div class="card-header">Todo</div>
+                    <div class="card-body">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="task" placeholder="Enter Task">
+                            <label for="task">Enter Task</label>
+                        </div>
+                        <button onclick="addTodo()" type="button" class="btn btn-primary w-100">Add</button>
+                    </div>
+                </div>
+                <div id="root" class="my-3">No Task Available</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const task = document.getElementById('task')
+        const root = document.getElementById('root')
+        const TODO = ["Learn HTML", "Learn CSS", "Learn JS"]
+
+        function addTodo() {
+            TODO.splice(0, 0, task.value)
+            task.value = ""
+            display()
+        }
+
+        function display() {
+            let str = ""
+            let i = 0
+            for (const item of TODO) {
+                str += `<div class="alert alert-primary d-flex justify-content-between"> 
+                ${i} ${item}
+                      <button onclick="deleteTodo(${i})" type="button" class="btn btn-danger">Delete</button>
+                    </div>`
+
+                i++
+            }
+            root.innerHTML = str
+
+        }
+
+        function deleteTodo(num) {
+            TODO.splice(num, 1)
+            display()
+        }
+
+        display()
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

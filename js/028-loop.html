@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const arr = ["dell", "hp", "apple", "asus"]
+        for (const item of arr) {
+            console.log(item)
+        }
+
+        console.clear()
+
+        const stud = [
+            { name: "ross", age: 20 },
+            { name: "joe", age: 22 },
+            { name: "chandler", age: 25 },
+        ]
+        for (const item of stud) {
+            console.log(item.name, item.age);
+        }
+
+        console.clear()
+
+        const cart = [
+            { name: "laptop", price: 85000, qty: 1 },
+            { name: "mouse", price: 500, qty: 2 },
+            { name: "ssd", price: 8000, qty: 1 },
+            { name: "ram", price: 8500, qty: 2 },
+        ]
+        let total = 0
+        for (const item of cart) {
+            total = total + item.price * item.qty
+            console.log(item.name, item.price * item.qty)
+        }
+        console.log("total bill ", total)
+
+        // for
+        // while
+        // do while
+
+    </script>
+</body>
+
+</html>

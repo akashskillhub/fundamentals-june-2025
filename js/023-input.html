@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="title"></h1>
+    <input type="text" id="user">
+    <button onclick="handleClick()">say hello</button>
+    <script>
+        function handleClick() {
+            const x = document.getElementById("user")
+            console.log(x.value)
+
+            document.getElementById("title").innerHTML = "hello " + x.value
+
+        }
+    </script>
+</body>
+
+</html>

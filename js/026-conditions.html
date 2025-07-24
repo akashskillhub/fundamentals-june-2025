@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let x = 1000
+        let y = 200
+        let z = 30
+        // console.log(x > y ? "hello" : "bye")
+        if (x > y) {
+            console.log(x)
+        } else {
+            console.log(y)
+        }
+
+        console.clear()
+
+        // else if ladder
+        if (x > y && x > z) {
+            console.log(x) // if (x > y && x > z) is true 
+        } else if (y > x && y > z) {
+            console.log(y) // if (y > x && y > z) is true
+        } else {
+            console.log(z)
+        }
+
+        console.clear()
+
+        switch (true) {
+            case x > y && x > z: console.log(x); break
+            case y > x && y > z: console.log(y); break
+            default: console.log(z)
+        }
+
+    </script>
+</body>
+
+</html>

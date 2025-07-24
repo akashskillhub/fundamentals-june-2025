@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap By SKILLHUB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <div class="card">
+                    <div class="card-header">Calulator</div>
+                    <div class="card-body">
+                        <h1 id="root"></h1>
+
+                        <input id="n1" type="number" placeholder="Enter First Number " class="form-control my-2">
+                        <input id="n2" type="number" placeholder="Enter Second Number " class="form-control my-2">
+                        <div class="btn-group w-100" role="group">
+                            <button onclick="cal('+')" type="button" class="btn btn-primary">+</button>
+                            <button onclick="cal('-')" type="button" class="btn btn-secondary">-</button>
+                            <button onclick="cal('*')" type="button" class="btn btn-warning">*</button>
+                            <button onclick="cal('/')" type="button" class="btn btn-danger">/</button>
+                        </div>
+
+                    </div>
+                    <!-- <div class="card-footer">footer</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const num1 = document.getElementById("n1")
+        const num2 = document.getElementById("n2")
+        const root = document.getElementById("root")
+        function cal(arg) {
+            const x = +num1.value
+            const y = +num2.value
+            switch (true) {
+                case arg === "+": root.innerHTML = x + y; break
+                case arg === "-": root.innerHTML = x - y; break
+                case arg === "*": root.innerHTML = x * y; break
+                case arg === "/": root.innerHTML = x / y; break
+            }
+        }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

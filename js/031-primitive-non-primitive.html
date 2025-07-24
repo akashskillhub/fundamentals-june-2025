@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // primitive
+        const x = 10
+        const y = "john"
+        const z = true
+
+        // non primitive
+        const a = ["dell", "hp"]
+        const arr = a // NOT A COPY  (Memory ADDRESS OF a)
+
+        arr.push("apple")
+        a.unshift("asus")
+        console.log(arr)
+        console.log(a)
+
+        const b = { name: "john" }
+        const obj = b
+        obj.age = 22
+
+        console.log(b)
+        console.log(obj)
+
+
+
+        function test(arg) {
+            return arg
+        }
+        const res = test // entire test function
+        const result = res("apple")
+        console.log(result)
+
+
+    </script>
+</body>
+
+</html>

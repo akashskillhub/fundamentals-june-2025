@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+            function            keyword
+            demo                function name
+            ()                  parentheses         
+            {}                  curly bracket
+            age                 Parameter                
+            demo()              function call
+            20                  argument
+        */
+
+        function demo(age, name) {
+            // function body
+            console.log("demo fn", age, name)
+        }
+
+        demo(20, "john doe") // function call
+        console.clear()
+
+        // create a functoin named sum with two parameters num1 and num2
+
+        function sum(num1, num2) {
+            console.log(num1 + num2)
+        }
+
+        sum(10, 20)
+        sum(5, 5)
+
+        console.clear()
+
+        // create a function named square with one parameter num
+
+        function square(num) {
+            return num ** 2
+        }
+        const result = square(5)
+        console.log(result)
+
+        console.clear()
+
+        function pow(num, p) {
+            return num ** p
+        }
+        const x = pow(1, 100)
+
+
+
+    </script>
+</body>
+
+</html>
