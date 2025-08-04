@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="./tailwind.config.js"></script>
+</head>
+
+<body class="flex justify-center items-center h-screen">
+    <div class="grid grid-cols-12 mx-20">
+        <div class=" col-span-8 p-5">
+            <div class="w-full h-4 bg-gray-400"></div>
+            <div class="grid grid-cols-12 gap-2 py-2" id="seat-container"> </div>
+        </div>
+        <div class="bg-blue-300 col-span-4">
+            <div id="seats"></div>
+            <div id="amount"></div>
+            <div id="tax"></div>
+            <div id="total"></div>
+            <button onclick="bookSeats()" id="bookbtn"
+                class="hidden bg-blue-500 px-5 py-2 text-white w-full">Book</button>
+        </div>
+    </div>
+
+    <script>
+        const seatContainer = document.querySelector("#seat-container")
+        let i = 0
+        const price = 500
+        const bookbtn = document.getElementById("bookbtn")
+        for (const item of Array.from({ length: 50 })) {
+            seatContainer.innerHTML += `<div onclick="selectSeat('seat-${i}')" id="seat-${i}" class="size-8 border border-gray-400"></div>`
+            i++
+        }
+
+        function selectSeat(id) {
+            if (document.getElementById(id).classList.contains("bg-gray-400")) {
+                console.error("seat alerayd booked")
+                return
+            }
+
+            document.getElementById(id).classList.toggle("bg-green-400")
+            const selectedSeats = document.querySelectorAll(".bg-green-400").length // array
+
+            const amt = selectedSeats * price
+            const gst = amt * 18 / 100
+            const sum = amt + gst
+
+            document.getElementById("seats").innerHTML = `You have selected ${selectedSeats} seats`
+            document.getElementById("amount").innerHTML = `Estimated Bill Amount is ${amt}`
+            document.getElementById("tax").innerHTML = `Tax ${gst}`
+            document.getElementById("total").innerHTML = `Total ${sum}`
+
+            if (selectedSeats > 0) {
+                bookbtn.classList.remove("hidden")
+            } else {
+                bookbtn.classList.add("hidden")
+                document.getElementById("seats").innerHTML = ""
+                document.getElementById("amount").innerHTML = ""
+                document.getElementById("tax").innerHTML = ""
+                document.getElementById("total").innerHTML = ""
+            }
+
+        }
+        function bookSeats() {
+            const seats = document.querySelectorAll(".bg-green-400")
+            for (const item of seats) {
+                item.classList.remove("bg-green-400")
+                item.classList.add("bg-gray-400")
+            }
+
+            document.getElementById("seats").innerHTML = ""
+            document.getElementById("amount").innerHTML = ""
+            document.getElementById("tax").innerHTML = ""
+            document.getElementById("total").innerHTML = ""
+            bookbtn.classList.add("hidden")
+        }
+
+
+    </script>
+
+    <!-- for loop while do while -->
+    <!-- ES6 -->
+</body>
+
+</html>

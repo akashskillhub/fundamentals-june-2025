@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="./tailwind.config.js"></script>
+</head>
+
+<body class="flex justify-center items-center h-screen">
+    <div id="box-container" class="grid grid-cols-3"></div>
+
+    <script>
+        const board = ["", "", "", "", "", "", "", "", ""]
+        const winPattern = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ]
+
+        const boxContainer = document.getElementById("box-container")
+        let chance = "x"
+        function drawBoard() {
+            let i = 0
+            boxContainer.innerHTML = ""
+            for (const item of board) {
+                boxContainer.innerHTML += `<div onclick="handleClick(${i})" class="size-36 border border-gray-300 flex justify-center items-center text-5xl"> ${item} </div>`
+                i++
+            }
+        }
+
+        function handleClick(index) {
+            if (board[index] !== "") {
+                console.error("no cheting")
+            } else {
+                board[index] = chance
+
+                if (checkWinner(chance)) {
+                    console.log(chance + " is winner")
+                    resetGame()
+                } else {
+                    let count = 0
+                    for (const item of board) {
+                        if (item) {
+                            count++
+                        }
+                    }
+                    if (count === 9) {
+                        console.log("match draw")
+                        resetGame()
+                    }
+                }
+
+                chance = chance === "x" ? "o" : "x"
+                drawBoard()
+            }
+        }
+
+        function checkWinner(arg) {
+            let winner
+            for (const item of winPattern) { //  winner = true
+                winner = true
+                for (const index of item) { // 0 4 8
+                    if (board[index] !== arg) { // "x" !== "x"
+                        winner = false
+                        break
+                    }
+                }
+                if (winner) {
+                    return true
+                }
+            }
+            return false
+        }
+
+
+        function resetGame() {
+            let i = 0
+            for (const item of board) {
+                board[i] = ""
+                i++
+            }
+            drawBoard()
+        }
+
+        drawBoard()
+
+        // ES6
+
+    </script>
+</body>
+
+</html>
