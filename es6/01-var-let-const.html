@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Global Scope
+        console.log(x)
+        // NO TDZ
+        var x = 10
+
+
+
+        // console.log(y)
+        // Temporal Dead Zone  (let const) 
+        const y = 10
+
+
+        console.clear()
+
+        // scope
+
+
+        function test() {
+            // functional scope
+            var p = 10
+            let q = 20
+            const r = 30
+            console.log(y)
+
+
+            if (true) {
+                var l = 100 // functional
+                let m = 200 // block
+                const n = 300 // block
+            }
+            console.log(l) // 100
+            // console.log(m) // error bcz block scope
+            // console.log(n) // error bcz block scope
+
+        }
+        test()
+        // console.log(p) // error
+        // console.log(q) // error
+        // console.log(r) // error
+
+
+        /*
+                            reinitialize    re declearion       initialize      TDZ     scope
+                var             yes         yes                 no              no      functional
+                let             yes         no                  no              yes     block
+                const           no          no                  yes             yes     block
+        */
+
+
+
+
+    </script>
+</body>
+
+</html>

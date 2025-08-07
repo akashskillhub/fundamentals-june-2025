@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const laptop = ["dell", "hp"]
+        const mobile = ["moto", "samsung"]
+        const x = [...laptop, ...mobile]
+
+        const ob = { name: "ross", age: 20 }
+        const ob1 = { name: "kate", age: 25 }
+        const z = { ...ob, ...ob1 }
+        console.log(z)
+
+        console.clear()
+
+        const studs = ["ross", "kate", "ethan"]
+        //         👇rest
+        const [p, ...q] = studs
+        console.log(p) // "ross"
+        console.log(q) // ["kate", "ethan"]
+
+        const emp = { name: "joe", city: "new york", age: 25 }
+        //            👇rest op (create new object with remaning values)
+        const { name, ...demo } = emp
+        console.log(name)
+        console.log(demo)
+
+        console.clear()
+
+        const tt = (str, ...arg) => {
+            console.log(str)
+            console.log(arg)
+        }
+        tt("hello", 10, 20, 30)
+
+
+        console.clear()
+
+        //                  👇rest [10,5]
+        const wrapper = (fn, ...arg) => {
+            //       👇spread 10,5
+            return fn(...arg) // fn(10,5)
+        }
+        const mul = (n1, n2) => n1 * n2
+
+        console.log(wrapper(mul, 10, 5))
+
+        const { a, b, ...c } = { city: "london", mobile: 123, edu: "btch" }
+
+        // promise / async code / callbacks
+        // modules
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+
+
+        const handleSuccess = (arg) => console.log("success", arg)
+        const handleFail = () => console.log("fail")
+
+        const x = new Promise((resolve, reject) => {
+            resolve("dell")
+            // reject()
+        })
+        x.then(handleSuccess).catch(handleFail)
+        console.log("helllo js")
+
+        const result = fetch("https://jsonplaceholder.typicode.com/users")
+        result
+            .then((data) => {
+                return data.json()
+            })
+            .then((arg) => {
+                // console.log(arg)
+                let str = ""
+                for (const item of arg) {
+                    str += `<div>${item.name}</div>`
+                }
+                document.getElementById("root").innerHTML = str
+            })
+            .catch((err) => {
+                console.log("not ok", err)
+            })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //          👇rest oprator
+        const sum = (...n1) => {
+            let total = 0
+            for (const item of n1) {
+                total += item
+            }
+            return total
+        }
+
+        const x = sum(10, 20, 30)
+        const y = sum(1, 2, 3, 4, 5)
+        console.log(x)
+        console.log(y)
+
+        console.clear()
+
+        // rest
+
+
+        const arr = ["dell", "hp"]
+        console.log(arr)
+        //          👇 spread oprator
+        console.log(...arr)
+        console.clear()
+
+        const arr1 = [...arr] // shalow copy
+        arr1.push("apple")
+        console.log(arr1)
+        console.log(arr)
+
+        console.clear()
+
+        const obj = { name: "ross", age: 20 }
+        // const test = obj
+        const test = { ...obj } // shalow copy
+        test.name = "ethan"
+        console.log(test)
+        console.log(obj)
+
+
+    </script>
+</body>
+
+</html>

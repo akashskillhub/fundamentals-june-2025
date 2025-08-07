@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = { name: "ross", age: 20, city: "london" }
+        const { city, name, age } = obj
+        // OR
+        // const name = obj.name
+        // const age = obj.age
+        // const city = obj.city
+        console.log(city, name, age)
+
+
+        const test = () => {
+            return { admin: true, role: "super admin" }
+        }
+        const useSelector = (arg) => arg()
+
+        const { role, x } = useSelector(test)
+        console.log(role, x)
+
+        // rest and spread oprator
+        // modules
+        // promises
+        // map filter reduce find findIndex includes
+
+
+
+    </script>
+</body>
+
+</html>
